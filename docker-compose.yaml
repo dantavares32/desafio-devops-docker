@@ -1,0 +1,24 @@
+services:
+  icecast:
+    image: moul/icecast:latest
+    container_name: icecast
+    ports:
+      - "8000:8000"
+    volumes:
+      - icecast-data:/usr/local/share/icecast/web
+    environment:
+      - ICECAST_ADMIN_PASSWORD=teste123
+      - ICECAST_SOURCE_PASSWORD=testesource123
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - icecast
+
+volumes:
+  icecast-data:

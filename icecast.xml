@@ -1,0 +1,26 @@
+<icecast>
+  <limits>
+    <clients>2</clients>
+    <sources>2</sources>
+    <admin-users>1</admin-users>
+  </limits>
+  
+  <hostname>localhost</hostname>
+  <listen-socket>
+    <port>8000</port>
+    <protocol>http</protocol>
+  </listen-socket>
+
+  <authentication>
+    <admin-user>admin</admin-user>
+    <admin-password>teste123</admin-password> <!-- Senha de admin -->
+    <source-password>testesource123</source-password> <!-- Senha de transmissão -->
+  </authentication>
+
+  <mount>
+    <mount-name>/stream.mp3</mount-name>
+    <file>/path/to/your/stream.mp3</file>
+  </mount>
+  
+  <directory>public_html</directory>
+</icecast>
